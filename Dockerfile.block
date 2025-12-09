@@ -1,0 +1,11 @@
+FROM ubuntu:22.04
+MAINTAINER george
+
+RUN apt update && \
+    apt install ceph-common fio python3-boto3 -y 
+
+WORKDIR /bist
+
+RUN mkdir -p /mnt/block
+
+COPY bist/ /bist/
